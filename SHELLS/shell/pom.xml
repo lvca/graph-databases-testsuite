@@ -15,6 +15,7 @@
     <modules>
         <module>shell-neo4j</module>
         <module>shell-arangodb</module>
+        <module>shell-arcadedb</module>
         <module>shell-orientdb</module>
         <module>shell-sqlgpg</module>
         <module>shell-janusgraph</module>
