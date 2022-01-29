@@ -108,7 +108,19 @@ def generate_config(config, dataset_dir=None, shell_dir=None, runtime_dir=None, 
         # },
 
         # TODO: consider database specific ENV
-        'databases': { _n : _c for _n, _c in  db_confs.items() if _n in database },
+        'databases': {
+            "arcadedb": {'image': "graphbenchmark.com/arcadedb:latest"},
+            "orientdb": {
+                'image': "graphbenchmark.com/orientdb:latest",
+                'jvm_opts': "-XX:+UseG1GC -XX:MaxDirectMemorySize=512m",
+            },
+
+            "neo4j": {'image': "graphbenchmark.com/neo4j:latest"},
+            "janusgraph": {'image': "graphbenchmark.com/janusgraph:latest"},
+
+            "arangodb": {'image': "graphbenchmark.com/arangodb:latest"},
+            "sqlgpg": {'image': "graphbenchmark.com/sqlgpg:latest"},
+        },
         'datasets': {},
         'queries': [],
         'warmup': [],
